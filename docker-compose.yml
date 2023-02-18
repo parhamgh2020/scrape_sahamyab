@@ -8,6 +8,8 @@ services:
       - neti
     depends_on:
       - mongodb
+    environment:
+      - TZ:"Iran/Tehran"
 
   mongodb:
     image: mongo
@@ -15,6 +17,8 @@ services:
       - 27017:27017
     networks:
       - neti
+    environment:
+      - TZ:"Iran/Tehran"
 
 networks:
   neti:
