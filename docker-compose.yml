@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  scrape:
+    build: ./Dockerfile
+    container_name: scrape_sahamyab
+    depends_on:
+      - mongodb
+    networks:
+      - net1
+
+  mongodb:
+    image: mongo
+    container_name: mongo_sahamyab
+    ports:
+      - 27017:27017
+    networks:
+      - net1
+
+networks:
+  net1:
