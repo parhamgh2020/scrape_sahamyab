@@ -1,21 +1,20 @@
-version: '3'
+version: '3.7'
 
 services:
 
-  scrape:
-    build: .
+  app:
+    build: ./
+    networks:
+      - neti
     depends_on:
       - mongodb
-    networks:
-      - net1
 
   mongodb:
     image: mongo
-    container_name: mongo_sahamyab
     ports:
       - 27017:27017
     networks:
-      - net1
+      - neti
 
 networks:
-  net1:
+  neti:
