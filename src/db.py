@@ -5,6 +5,7 @@ from config.configer import Config
 uri = Config.get("mongo", "uri")
 uri_compose = Config.get("mongo", "uri_compose")
 
+
 try:
     print("checking database takes 30 seconds ...")
     client = MongoClient(uri_compose)

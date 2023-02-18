@@ -44,7 +44,7 @@ class Scraper:
         async with async_playwright() as p:
             browser = await p.chromium.launch()
             page = await browser.new_page()
-            await page.goto(url)
+            await page.goto(url, timeout=10000)
             data = await page.inner_text(selector="pre")
             data = json.loads(data)
             output = {
