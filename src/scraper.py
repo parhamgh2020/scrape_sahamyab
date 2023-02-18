@@ -71,5 +71,6 @@ class Scraper:
 
     @classmethod
     def run(cls):
+        """main function of the class"""
         data = asyncio.run(cls._do_all_requests())
         ScraperDB.add(data)

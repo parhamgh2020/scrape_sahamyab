@@ -3,8 +3,7 @@ version: '3'
 services:
 
   scrape:
-    build: ./Dockerfile
-    container_name: scrape_sahamyab
+    build: .
     depends_on:
       - mongodb
     networks:

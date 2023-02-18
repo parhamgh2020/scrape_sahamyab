@@ -18,6 +18,9 @@ class ScraperDB:
 
     @classmethod
     def add(cls, data: dict):
+        """
+        add data to mongo database
+        """
         print("adding data to database ...")
         res = cls.collection.insert_one(data)
         return res.acknowledged

@@ -20,6 +20,7 @@ def main(start_time,
          end_time,
          sleep_time,
          working_days):
+    """ main function of app"""
     now = datetime.now()
     print(f'start webscraping data at {now} ...')
     weekday = now.weekday()
