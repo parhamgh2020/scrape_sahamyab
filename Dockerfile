@@ -1,28 +1,19 @@
-FROM python:3.9-slim-buster
+FROM mcr.microsoft.com/playwright:v1.30.0-focal
 
-ENV TZ="Africa/Lusaka"
+# Install any necessary packages
+RUN apt-get update && apt-get install -y python3 python3-pip
 
-# Install required packages
-RUN apt-get update && apt-get install -y \
-    curl \
-    libglib2.0-0 \
-    libnss3 \
-    libatk-bridge2.0-0 \
-    libx11-xcb1 \
-    libxcb-dri3-0 \
-    libdrm2 \
-    libgbm1 \
-    libasound2 \
-    fonts-noto-cjk \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install the latest version of Playwright for Python
-RUN curl -fsSL https://playwright.dev/python-cli | python -
-
-
+# Set the working directory to /app
 WORKDIR /app
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the requirements file into the container
+COPY requirements.txt .
+
+# Install the dependencies
+RUN pip3 install -r requirements.txt
+
+# Copy the rest of the application code into the container
 COPY . .
 
-CMD ["python3", "main.py"]
+# Start the app
+CMD [ "python3", "app.py" ]
