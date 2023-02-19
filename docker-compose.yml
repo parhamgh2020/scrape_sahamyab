@@ -5,7 +5,7 @@ services:
   app:
     build: ./
     networks:
-      - neti
+      - host
     depends_on:
       - mongodb
 
@@ -14,7 +14,9 @@ services:
     ports:
       - 27017:27017
     networks:
-      - neti
+      - host
 
 networks:
-  neti:
+  host:
+    driver: host
+    name: host

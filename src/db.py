@@ -3,18 +3,8 @@ from pymongo import MongoClient
 from config.configer import Config
 
 uri = Config.get("mongo", "uri")
-uri_compose = Config.get("mongo", "uri_compose")
+client = MongoClient(uri)
 
-
-try:
-    print("checking database takes 30 seconds ...")
-    client = MongoClient(uri_compose)
-    client.server_info()
-except Exception as err:
-    client = MongoClient(uri)
-    print(client)
-
-print("database:", client)
 
 class ScraperDB:
     db = client[Config.get("mongo", "db")]
