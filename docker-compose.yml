@@ -5,18 +5,18 @@ services:
   app:
     build: ./
     networks:
-      - host
+      - net1
     depends_on:
       - mongodb
+    environment:
+      mongo_url=mongodb://mongodb:27017
 
   mongodb:
     image: mongo
     ports:
       - 27017:27017
     networks:
-      - host
+      - net1
 
 networks:
-  host:
-    driver: host
-    name: host
+  net1:

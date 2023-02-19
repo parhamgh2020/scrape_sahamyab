@@ -1,8 +1,13 @@
+import os
+
 from pymongo import MongoClient
 
 from config.configer import Config
 
-uri = Config.get("mongo", "uri")
+try:
+    uri = os.environ.get['mongo_uri']
+except:
+    uri = Config.get("mongo", "uri")
 client = MongoClient(uri)
 
 
