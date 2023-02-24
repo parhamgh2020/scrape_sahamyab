@@ -1,10 +1,20 @@
-FROM mcr.microsoft.com/playwright/python:v1.21.0-focal
+# Use the official Python runtime as a parent image
+FROM python:3.9-slim-buster
 
-RUN apt-get update && apt-get -y upgrade
-RUN apt install python3-pip
+# Set the working directory to /app
+WORKDIR /app
 
-COPY . .
-RUN pip install -r requirements.txt
+# Install dependencies
+RUN apt-get update && apt-get install -yq curl && \
+    curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -yq nodejs && \
+    npm install -g playwright
 
-# Run Python script
-CMD [ "python", "main.py" ]
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
+# Run the command to start the app
+CMD ["python", "main.py"]

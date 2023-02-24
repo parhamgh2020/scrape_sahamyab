@@ -28,6 +28,8 @@ def main(start_time,
     work_days = map(lambda day: Weekday[day].value, working_days)
     if weekday in work_days and start_time <= time <= end_time:
         Scraper.run()
+    else:
+        print("not now ...")
     print(f"next webscraping will be started {sleep_time} seconds later", end='\n\n')
     sleep(sleep_time)
 
