@@ -1,6 +1,2 @@
-dnspython==2.3.0
-greenlet==2.0.1
-playwright==1.30.0
-typing_extensions==4.5.0
+playwright
 pymongo
-pytest-playwright

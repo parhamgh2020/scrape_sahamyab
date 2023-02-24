@@ -6,14 +6,9 @@ WORKDIR /app
 RUN apt-get update
 RUN apt -y upgrade
 RUN apt -y install python3-pip
+RUN apt-get -y install libnss3 libatk-bridge2.0-0 libdrm-dev libxkbcommon-dev libgbm-dev libasound-dev libatspi2.0-0 libxshmfence-dev
 
 RUN apt -y install build-essential libssl-dev libffi-dev python3-dev
-
-## Install dependencies
-RUN apt-get update && apt-get install -yq curl && \
-    curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -yq nodejs && \
-    npm install -g playwright
 
 # Copy the current directory contents into the container at /app
 COPY . /app
@@ -24,6 +19,7 @@ RUN pip install virtualenv && \
     . venv/bin/activate && \
     pip install --upgrade pip && \
     pip install -r requirements.txt && \
+    pip install playwright && \
     playwright install chromium && \
     python3 main.py
 
