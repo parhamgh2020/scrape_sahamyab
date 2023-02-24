@@ -3,8 +3,9 @@ FROM ubuntu:22.04
 # Set the working directory to /app
 WORKDIR /app
 
-RUN apt-get update && \
-    apt install python3-pip
+RUN apt-get update
+RUN apt -y upgrade
+RUN apt install python3-pip
 
 # RUN apt install build-essential libssl-dev libffi-dev python3-dev
 
