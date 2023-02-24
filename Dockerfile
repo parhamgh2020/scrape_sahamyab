@@ -16,6 +16,7 @@ COPY . /app
 RUN pip install playwright
 RUN pip install pymongo
 RUN playwright install chromium
+RUN playwright install-deps
 # Create and activate a virtual environment
 #RUN pip install virtualenv && \
 #    virtualenv venv && \
