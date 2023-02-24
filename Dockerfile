@@ -19,7 +19,7 @@ RUN pip install virtualenv && \
     . venv/bin/activate && \
     pip install --upgrade pip && \
     pip install -r requirements.txt && \
-    playwright install && \
+    playwright install chromium && \
     python3 main.py
 
 
