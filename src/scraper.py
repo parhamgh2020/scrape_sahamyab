@@ -50,7 +50,6 @@ class Scraper:
             output = {
                 url.strip(): data
             }
-            page.is_closed()
             await browser.close()
             return output
 
