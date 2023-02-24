@@ -13,8 +13,11 @@ RUN apt-get update && apt-get install -yq curl && \
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
+# Create and activate a virtual environment
+RUN python3 -m venv venv && \
+    . venv/bin/activate && \
+    pip install --upgrade pip && \
+    pip install -r requirements.txt
 
 # Run the command to start the app
-CMD ["python", "main.py"]
+CMD ["python", "app.py"]
