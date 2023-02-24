@@ -14,14 +14,15 @@ RUN apt -y install build-essential libssl-dev libffi-dev python3-dev
 COPY . /app
 
 RUN pip install playwright
-
+RUN pip install pymongo
+RUN playwrite install chromium
 # Create and activate a virtual environment
-RUN pip install virtualenv && \
-    virtualenv venv && \
-    . venv/bin/activate && \
-    pip install --upgrade pip && \
-    pip install -r requirements.txt && \
-    playwright install chromium
+#RUN pip install virtualenv && \
+#    virtualenv venv && \
+#    . venv/bin/activate && \
+#    pip install --upgrade pip && \
+#    pip install -r requirements.txt && \
+#    playwright install chromium
 
 # Run the command to start the app
 CMD ["python3 main.py"]
