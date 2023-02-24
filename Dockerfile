@@ -24,4 +24,4 @@ RUN pip install virtualenv && \
     playwright install chromium
 
 # Run the command to start the app
-CMD [". ./venv/bin/acticate", "python3 main.py"]
+CMD [". ./venv/bin/activate", "python3 main.py"]
