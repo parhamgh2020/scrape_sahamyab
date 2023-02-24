@@ -21,7 +21,6 @@ RUN pip install virtualenv && \
     pip install -r requirements.txt
 
 RUN playwright install
-RUN playwright install-deps
 
 # Run the command to start the app
 CMD ["python", "main.py"]
