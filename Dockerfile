@@ -10,10 +10,10 @@ RUN apt update && apt -y upgrade && \
 #RUN apt install -y build-essential libssl-dev libffi-dev python3-dev
 
 # Install dependencies
-RUN apt-get update && apt-get install -yq curl && \
-    curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -yq nodejs && \
-    npm install -g playwright
+#RUN apt-get update && apt-get install -yq curl && \
+#    curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+#    apt-get install -yq nodejs && \
+#    npm install -g playwright
 
 # Copy the current directory contents into the container at /app
 COPY . /app
