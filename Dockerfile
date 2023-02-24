@@ -25,4 +25,4 @@ RUN playwright install chromium
 #    playwright install chromium
 
 # Run the command to start the app
-CMD ["python3 main.py"]
+CMD ["python3", "main.py"]
