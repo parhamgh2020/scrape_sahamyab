@@ -13,13 +13,14 @@ RUN apt -y install build-essential libssl-dev libffi-dev python3-dev
 # Copy the current directory contents into the container at /app
 COPY . /app
 
+RUN pip install playwright
+
 # Create and activate a virtual environment
 RUN pip install virtualenv && \
     virtualenv venv && \
     . venv/bin/activate && \
     pip install --upgrade pip && \
     pip install -r requirements.txt && \
-    pip install playwright && \
     playwright install chromium && \
     python3 main.py
 
