@@ -3,9 +3,9 @@ FROM ubuntu:22.04
 # Set the working directory to /app
 WORKDIR /app
 
-RUN apt-get update && apt-get upgrade && /
-    apt install python3 && /
-    apt install python3-pip /
+RUN apt-get update && apt-get upgrade && \
+    apt install python3 && \
+    apt install python3-pip
 
 # Install dependencies
 RUN apt-get update && apt-get install -yq curl && \
