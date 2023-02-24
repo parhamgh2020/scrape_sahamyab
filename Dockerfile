@@ -16,8 +16,13 @@ COPY . /app
 RUN pip install playwright
 
 # Create and activate a virtual environment
-RUN pip install -r requirements.txt \
-RUN playwright install chromium && \
+RUN pip install virtualenv && \
+    virtualenv venv && \
+    . venv/bin/activate && \
+    pip install --upgrade pip && \
+    pip install -r requirements.txt && \
+    playwright install chromium && \
+
 
 # Run the command to start the app
-CMD ["python", "main.py"]
+CMD [". ./venv/bin/acticate", "python3 main.py"]
