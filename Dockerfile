@@ -14,7 +14,8 @@ RUN apt-get update && apt-get install -yq curl && \
 COPY . /app
 
 # Create and activate a virtual environment
-RUN python3 -m venv venv && \
+RUN pip install virtualenv && \
+    virtualenv venv && \
     . venv/bin/activate && \
     pip install --upgrade pip && \
     pip install -r requirements.txt
