@@ -7,7 +7,7 @@ RUN apt update && apt -y upgrade && \
     apt install python3 && \
     apt install -y python3-pip \
 
-RUN apt install -y build-essential libssl-dev libffi-dev python3-dev
+#RUN apt install -y build-essential libssl-dev libffi-dev python3-dev
 
 # Install dependencies
 RUN apt-get update && apt-get install -yq curl && \
