@@ -18,9 +18,10 @@ RUN pip install virtualenv && \
     virtualenv venv && \
     . venv/bin/activate && \
     pip install --upgrade pip && \
-    pip install -r requirements.txt
+    pip install -r requirements.txt && \
+    playwright install && \
+    python3 main.py
 
-RUN playwright install
 
 # Run the command to start the app
-CMD ["python", "main.py"]
+#CMD ["python", "main.py"]
