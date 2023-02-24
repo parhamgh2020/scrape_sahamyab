@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 # Set the working directory to /app
 WORKDIR /app
 
-RUN apt update && apt -y upgrade && \
+RUN apt-get update && apt-get upgrade && \
     apt install python3 && \
     apt install -y python3-pip
 
