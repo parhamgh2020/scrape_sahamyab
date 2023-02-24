@@ -21,8 +21,7 @@ RUN pip install virtualenv && \
     . venv/bin/activate && \
     pip install --upgrade pip && \
     pip install -r requirements.txt && \
-    playwright install chromium && \
-
+    playwright install chromium
 
 # Run the command to start the app
 CMD [". ./venv/bin/acticate", "python3 main.py"]
