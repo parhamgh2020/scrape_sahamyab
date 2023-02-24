@@ -5,7 +5,7 @@ WORKDIR /app
 
 RUN apt-get update
 RUN apt -y upgrade
-RUN apt install python3-pip
+RUN apt -y install python3-pip
 
 # RUN apt install build-essential libssl-dev libffi-dev python3-dev
 
