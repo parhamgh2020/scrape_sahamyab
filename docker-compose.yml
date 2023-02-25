@@ -4,7 +4,8 @@ services:
 
   app:
     build: ./
-    network_mode: "host" 
+    networks:
+      - net1
     depends_on:
       - mongodb
     environment:
@@ -14,4 +15,8 @@ services:
     image: mongo
     ports:
       - 27017:27017
-    network_mode: "host" 
+    networks:
+      - net1
+
+networks:
+  net1:

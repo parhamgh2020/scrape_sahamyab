@@ -4,13 +4,12 @@ from pymongo import MongoClient
 
 from config.configer import Config
 
-# try:
-#     uri = os.environ.get['mongo_uri']
-# except:
-#     uri = Config.get("mongo", "uri")
-# client = MongoClient(uri)
+uri = os.environ.get('mongo_uri', Config.get("mongo", "uri"))
+print(uri)
 
-client = MongoClient("mongodb://localhost:27017")
+client = MongoClient(uri)
+
+# client = MongoClient("mongodb://localhost:27017")
 
 
 class ScraperDB:
